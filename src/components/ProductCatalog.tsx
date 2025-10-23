@@ -52,7 +52,7 @@ const ProductCatalog = ({ onCTAClick }: ProductCatalogProps) => {
           </div>
         </AnimatedSection>
 
-        <div className="flex items-center justify-center mb-10 md:mb-12">
+        <div className="flex items-center justify-center mb-16 md:mb-20">
           <CircularTestimonials
             testimonials={products}
             autoplay={true}
