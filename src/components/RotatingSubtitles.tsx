@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import { AnimatePresence } from 'framer-motion';
-import { TextRoll } from './ui/text-roll';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const RotatingSubtitles = () => {
   const subtitles = [
@@ -15,21 +14,24 @@ const RotatingSubtitles = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % subtitles.length);
-    }, 3000);
+    }, 3500);
 
     return () => clearInterval(interval);
   }, [subtitles.length]);
 
   return (
-    <div className="h-16 md:h-20 flex items-center justify-center">
+    <div className="h-16 md:h-20 flex items-center justify-center overflow-hidden">
       <AnimatePresence mode="wait">
-        <TextRoll
+        <motion.p
           key={currentIndex}
           className="text-base md:text-xl lg:text-2xl text-white/95 font-medium text-center px-4"
-          duration={0.03}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
         >
           {subtitles[currentIndex]}
-        </TextRoll>
+        </motion.p>
       </AnimatePresence>
     </div>
   );

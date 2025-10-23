@@ -31,7 +31,7 @@ const Hero = ({ onCTAClick }: HeroProps) => {
         }}
       />
       
-      <section id="hero" className="relative max-w-full mx-auto">
+      <section id="hero" className="relative max-w-full mx-auto pt-20 md:pt-24">
         <div className="max-w-screen-xl mx-auto px-4 md:px-6 lg:px-8 py-12 md:py-16 lg:py-20">
           <motion.div
             className="text-center space-y-6 md:space-y-8 max-w-4xl mx-auto"
