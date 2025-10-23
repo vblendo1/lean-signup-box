@@ -76,11 +76,11 @@ const Differentials = ({ onCTAClick }: DifferentialsProps) => {
         <AnimatedSection>
           <div className="text-center mb-12 md:mb-20">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 md:mb-6 leading-tight px-4">
-              Infraestrutura de{' '}
+              Nossos diferenciais fazem o{' '}
               <span className="bg-gradient-to-r from-[#6c256f] via-[#8c4091] to-[#009bac] bg-clip-text text-transparent">
-                negócios completa
-              </span>
-              , desde o primeiro dia
+                lucro trabalhar
+              </span>{' '}
+              pra você.
             </h2>
             <p className="text-base md:text-xl text-gray-700 max-w-2xl mx-auto px-4">
               Condições exclusivas pensadas para proteger seu caixa e maximizar seus lucros
