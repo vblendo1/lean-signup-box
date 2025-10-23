@@ -65,9 +65,9 @@ const ProductCatalog = ({ onCTAClick }: ProductCatalogProps) => {
               arrowHoverBackground: "#4dbdc6",
             }}
             fontSizes={{
-              name: "28px",
-              designation: "20px",
-              quote: "18px",
+              name: "36px",
+              designation: "24px",
+              quote: "20px",
             }}
           />
         </div>

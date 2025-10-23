@@ -8,6 +8,8 @@ import React, {
 } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
+import { Collapsible, CollapsibleTrigger } from "./collapsible";
+import { ChevronDown } from "lucide-react";
 
 interface Testimonial {
   quote: string;
@@ -71,6 +73,7 @@ export const CircularTestimonials = ({
   const [hoverPrev, setHoverPrev] = useState(false);
   const [hoverNext, setHoverNext] = useState(false);
   const [containerWidth, setContainerWidth] = useState(1200);
+  const [isOpen, setIsOpen] = useState(false);
 
   const imageContainerRef = useRef<HTMLDivElement>(null);
   const autoplayIntervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -116,13 +119,20 @@ export const CircularTestimonials = ({
     // eslint-disable-next-line
   }, [activeIndex, testimonialsLength]);
 
+  // Reset collapsible when active index changes
+  useEffect(() => {
+    setIsOpen(false);
+  }, [activeIndex]);
+
   // Navigation handlers
   const handleNext = useCallback(() => {
     setActiveIndex((prev) => (prev + 1) % testimonialsLength);
+    setIsOpen(false); // Reset collapsible on navigation
     if (autoplayIntervalRef.current) clearInterval(autoplayIntervalRef.current);
   }, [testimonialsLength]);
   const handlePrev = useCallback(() => {
     setActiveIndex((prev) => (prev - 1 + testimonialsLength) % testimonialsLength);
+    setIsOpen(false); // Reset collapsible on navigation
     if (autoplayIntervalRef.current) clearInterval(autoplayIntervalRef.current);
   }, [testimonialsLength]);
 
@@ -177,10 +187,10 @@ export const CircularTestimonials = ({
   };
 
   return (
-    <div className="w-full max-w-4xl p-4 md:p-8">
+    <div className="w-full max-w-6xl p-4 md:p-8">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-20">
         {/* Images */}
-        <div className="relative w-full h-64 md:h-96" style={{ perspective: '1000px' }} ref={imageContainerRef}>
+        <div className="relative w-full h-64 md:h-[500px]" style={{ perspective: '1000px' }} ref={imageContainerRef}>
           {testimonials.map((testimonial, index) => (
             <img
               key={testimonial.src}
@@ -215,8 +225,10 @@ export const CircularTestimonials = ({
               >
                 {activeTestimonial.designation}
               </p>
+              
+              {/* Desktop: texto completo animado */}
               <motion.p
-                className="leading-relaxed"
+                className="leading-relaxed hidden md:block"
                 style={{ color: colorTestimony, fontSize: fontSizeQuote }}
               >
                 {activeTestimonial.quote.split(" ").map((word, i) => (
@@ -243,6 +255,34 @@ export const CircularTestimonials = ({
                   </motion.span>
                 ))}
               </motion.p>
+
+              {/* Mobile: texto com collapsible */}
+              <Collapsible 
+                open={isOpen} 
+                onOpenChange={setIsOpen}
+                className="md:hidden"
+              >
+                <motion.div
+                  className="leading-relaxed"
+                  style={{ color: colorTestimony, fontSize: fontSizeQuote }}
+                >
+                  <p className={!isOpen ? "line-clamp-3" : ""}>
+                    {activeTestimonial.quote}
+                  </p>
+                  
+                  <CollapsibleTrigger asChild>
+                    <button 
+                      className="flex items-center gap-2 mt-3 text-sm font-semibold transition-colors hover:opacity-80"
+                      style={{ color: colorDesignation }}
+                    >
+                      {isOpen ? "Ver menos" : "Ver mais"}
+                      <ChevronDown 
+                        className={`w-4 h-4 transition-transform ${isOpen ? "rotate-180" : ""}`}
+                      />
+                    </button>
+                  </CollapsibleTrigger>
+                </motion.div>
+              </Collapsible>
             </motion.div>
           </AnimatePresence>
           <div className="flex gap-6 pt-12 md:pt-0">
