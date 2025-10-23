@@ -39,7 +39,6 @@ import { useState } from 'react';
 // Todos os componentes da landing page
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import HeroBannerCarousel from './components/HeroBannerCarousel';
 import { Logos3 } from './components/ui/logos3';
 import Differentials from './components/Differentials';
 import ProductCatalog from './components/ProductCatalog';
