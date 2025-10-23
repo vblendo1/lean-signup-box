@@ -9,18 +9,17 @@
  * ESTRUTURA DA PÁGINA:
  * 1. ScrollProgress - Barra de progresso no topo
  * 2. Navbar - Menu de navegação
- * 3. Hero - Seção principal com CTA e banner mobile dinâmico integrado
- * 4. HeroBannerCarousel - Carrossel de banners promocionais
- * 6. Logos3 - Logos de clientes/social proof
- * 7. Differentials - Diferenciais da ONDA PRO
- * 8. ProductCatalog - Catálogo de produtos
- * 9. Testimonials - Depoimentos de clientes
- * 10. Blog - Artigos e conteúdo
- * 11. ContactForm - Formulário de contato
- * 12. FAQ - Perguntas frequentes
- * 13. About - Sobre a empresa
- * 14. Footer - Rodapé
- * 15. FormModal - Modal flutuante de captura
+ * 3. Hero - Seção principal com CTA
+ * 4. Logos3 - Logos de clientes/social proof
+ * 5. Differentials - Diferenciais da ONDA PRO
+ * 6. ProductCatalog - Catálogo de produtos
+ * 7. Testimonials - Depoimentos de clientes
+ * 8. Blog - Artigos e conteúdo
+ * 9. ContactForm - Formulário de contato
+ * 10. FAQ - Perguntas frequentes
+ * 11. About - Sobre a empresa
+ * 12. Footer - Rodapé
+ * 13. FormModal - Modal flutuante de captura
  *
  * PARA PROGRAMADORES JÚNIOR:
  * - Este componente é como o "índice" de um livro
@@ -39,7 +38,6 @@ import { useState } from 'react';
 // Todos os componentes da landing page
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import HeroBannerCarousel from './components/HeroBannerCarousel';
 import { Logos3 } from './components/ui/logos3';
 import Differentials from './components/Differentials';
 import ProductCatalog from './components/ProductCatalog';
@@ -123,16 +121,6 @@ function App() {
 
       {/* Container com margens compactas entre seções */}
       <div className="space-y-0">
-        {/* ════════════════════════════════════════════════════════════
-            CARROSSEL DE BANNERS
-            ════════════════════════════════════════════════════════════
-            Banners promocionais em formato carrossel.
-            Passa automaticamente mostrando ofertas.
-            OCULTO NO MOBILE - Apenas desktop. */}
-        <div className="hidden lg:block">
-          <HeroBannerCarousel />
-        </div>
-
         {/* ════════════════════════════════════════════════════════════
             SOCIAL PROOF - LOGOS
             ════════════════════════════════════════════════════════════
