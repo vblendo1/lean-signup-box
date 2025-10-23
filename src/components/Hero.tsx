@@ -31,8 +31,8 @@ const Hero = ({ onCTAClick }: HeroProps) => {
         }}
       />
       
-      <section id="hero" className="relative max-w-full mx-auto pt-20 md:pt-24">
-        <div className="max-w-screen-xl mx-auto px-4 md:px-6 lg:px-8 py-12 md:py-16 lg:py-20">
+      <section id="hero" className="relative max-w-full mx-auto pt-16 md:pt-24">
+        <div className="max-w-screen-xl mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-16 lg:py-20">
           <motion.div
             className="text-center space-y-6 md:space-y-8 max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
@@ -40,7 +40,7 @@ const Hero = ({ onCTAClick }: HeroProps) => {
             transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
           >
             {/* Título Principal */}
-            <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight font-extrabold leading-tight">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight font-extrabold leading-[1.15] md:leading-tight px-2 md:px-0">
               <motion.span
                 className="block text-white"
                 initial={{ opacity: 0, y: 20 }}
@@ -50,7 +50,7 @@ const Hero = ({ onCTAClick }: HeroProps) => {
                 Venda hoje. Pague depois.
               </motion.span>
               <motion.span
-                className="block text-white mt-2"
+                className="block text-white mt-1 md:mt-2"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.5 }}
@@ -59,7 +59,7 @@ const Hero = ({ onCTAClick }: HeroProps) => {
                 <span className="text-[#4dbdc6] relative inline-block">
                   60 dias
                   <motion.span
-                    className="absolute -bottom-2 left-0 w-full h-1 bg-[#4dbdc6]"
+                    className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-[#4dbdc6]"
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
                     transition={{ delay: 0.8, duration: 0.6 }}

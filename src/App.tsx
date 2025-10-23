@@ -127,8 +127,11 @@ function App() {
             CARROSSEL DE BANNERS
             ════════════════════════════════════════════════════════════
             Banners promocionais em formato carrossel.
-            Passa automaticamente mostrando ofertas. */}
-        <HeroBannerCarousel />
+            Passa automaticamente mostrando ofertas.
+            OCULTO NO MOBILE - Apenas desktop. */}
+        <div className="hidden lg:block">
+          <HeroBannerCarousel />
+        </div>
 
         {/* ════════════════════════════════════════════════════════════
             SOCIAL PROOF - LOGOS

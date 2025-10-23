@@ -62,7 +62,7 @@ const HeroBannerCarousel = () => {
   }, [emblaApi, onSelect]);
 
   return (
-    <section className="lg:hidden relative w-full pt-16 pb-2 px-4 bg-white">
+    <section className="relative w-full pt-16 pb-2 px-4 bg-white">
       <div className="max-w-3xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
