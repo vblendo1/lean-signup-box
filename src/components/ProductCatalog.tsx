@@ -18,7 +18,7 @@ const ProductCatalog = ({ onCTAClick }: ProductCatalogProps) => {
       quote: 'Linha premium de marcadores vibrantes que pintam em papel, vidro, metal, madeira e plástico. Criada para consumidores criativos e exigentes, une desempenho profissional e design desejado. Produtos que chamam atenção, geram recompra e se vendem sozinhos.',
       name: 'Linha Prisma',
       designation: 'Marcadores que Pintam em Qualquer Superfície',
-      src: 'https://www.canva.com/design/DAG19tdKJyY/FbAozj7ufbtARiRro1tU0g/view?utm_content=DAG19tdKJyY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hee5ad1b70e'
+      src: '/prisma-produto.gif'
     },
     {
       quote: 'Planejadores e acessórios corporativos com design profissional e alta margem de lucro. Feitos para quem quer unir estética e funcionalidade, garantindo produtos que se posicionam como premium e praticamente se vendem sozinhos.',
