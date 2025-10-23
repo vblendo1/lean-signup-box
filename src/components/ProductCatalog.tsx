@@ -35,12 +35,7 @@ const ProductCatalog = ({ onCTAClick }: ProductCatalogProps) => {
   ];
 
   return (
-    <section id="produtos" className="py-12 md:py-16 bg-gradient-to-br from-[#6c256f] via-[#8c4091] to-[#009bac] relative overflow-hidden">
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#4dbdc6] rounded-full blur-3xl"></div>
-      </div>
+    <section id="produtos" className="py-12 md:py-16 bg-[#6c256f] relative overflow-hidden">
       
       <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
         <AnimatedSection>
