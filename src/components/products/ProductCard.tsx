@@ -1,5 +1,4 @@
 import { Check } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
 
 export interface ProductCardProps {
   imageSrc: string;
@@ -8,9 +7,9 @@ export interface ProductCardProps {
   bullets: string[];
 }
 
-export const ProductCard = ({ imageSrc, title, tags, bullets }: ProductCardProps) => {
+export const ProductCard = ({ imageSrc, title, bullets }: ProductCardProps) => {
   return (
-    <div className="bg-white rounded-xl border border-border shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden h-full flex flex-col">
+    <div className="bg-white rounded-lg shadow-[0_2px_6px_rgba(0,0,0,0.1)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.15)] transition-shadow duration-300 overflow-hidden h-full flex flex-col">
       <div className="relative w-full aspect-[4/3] overflow-hidden">
         <img
           src={imageSrc}
@@ -20,15 +19,7 @@ export const ProductCard = ({ imageSrc, title, tags, bullets }: ProductCardProps
         />
       </div>
       
-      <div className="p-5 md:p-6 flex flex-col flex-1">
-        <div className="flex flex-wrap gap-2 mb-3">
-          {tags.slice(0, 3).map((tag, index) => (
-            <Badge key={index} variant="secondary" className="text-[11px] md:text-xs px-2.5 py-1">
-              {tag}
-            </Badge>
-          ))}
-        </div>
-        
+      <div className="p-6 flex flex-col flex-1">
         <h3 className="text-lg md:text-xl font-bold text-foreground mb-4">
           {title}
         </h3>
@@ -36,7 +27,7 @@ export const ProductCard = ({ imageSrc, title, tags, bullets }: ProductCardProps
         <ul className="space-y-2 mt-auto">
           {bullets.slice(0, 3).map((bullet, index) => (
             <li key={index} className="flex items-start gap-2 text-sm md:text-[15px] text-muted-foreground leading-relaxed">
-              <Check className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+              <Check className="w-4 h-4 text-[#2ECC71] mt-0.5 flex-shrink-0" />
               <span>{bullet}</span>
             </li>
           ))}

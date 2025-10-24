@@ -26,18 +26,15 @@ export const ProductCarouselSection = ({
   products,
   ctaCardProps,
   onCTAClick,
-  backgroundColor = "white",
 }: ProductCarouselSectionProps) => {
-  const bgClass = backgroundColor === "gray" ? "bg-muted/30" : "bg-background";
-
   return (
-    <section className={`py-12 md:py-16 lg:py-20 ${bgClass}`}>
+    <section className="py-7 md:py-9 lg:py-12 bg-[#6A1B9A]">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground mb-3">
+        <div className="text-center mb-8 md:mb-10">
+          <h2 className="text-[clamp(1.6rem,2vw,2.2rem)] font-bold text-white mb-2">
             {sectionTitle}
           </h2>
-          <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-sm md:text-base lg:text-lg text-white/80 max-w-3xl mx-auto">
             {sectionSubtitle}
           </p>
         </div>
@@ -50,17 +47,17 @@ export const ProductCarouselSection = ({
           }}
           className="w-full"
         >
-          <CarouselContent className="-ml-3 md:-ml-4 lg:-ml-5">
+          <CarouselContent className="-ml-2 md:-ml-2 lg:-ml-2">
             {products.map((product, index) => (
               <CarouselItem
                 key={index}
-                className="pl-3 md:pl-4 lg:pl-5 basis-[85%] sm:basis-[48%] md:basis-[48%] lg:basis-[32%] xl:basis-[24%] 2xl:basis-[19%]"
+                className="pl-2 md:pl-2 lg:pl-2 basis-[90%] sm:basis-[48%] md:basis-[48%] lg:basis-[32%] xl:basis-[24%] 2xl:basis-[19%]"
               >
                 <ProductCard {...product} />
               </CarouselItem>
             ))}
             
-            <CarouselItem className="pl-3 md:pl-4 lg:pl-5 basis-[85%] sm:basis-[48%] md:basis-[48%] lg:basis-[32%] xl:basis-[24%] 2xl:basis-[19%]">
+            <CarouselItem className="pl-2 md:pl-2 lg:pl-2 basis-[90%] sm:basis-[48%] md:basis-[48%] lg:basis-[32%] xl:basis-[24%] 2xl:basis-[19%]">
               <CatalogCTACard
                 {...ctaCardProps}
                 onClick={() => onCTAClick(ctaCardProps.lineName)}
@@ -69,8 +66,8 @@ export const ProductCarouselSection = ({
           </CarouselContent>
 
           <div className="hidden lg:block">
-            <CarouselPrevious className="left-0 -translate-x-1/2" />
-            <CarouselNext className="right-0 translate-x-1/2" />
+            <CarouselPrevious className="left-0 -translate-x-1/2 bg-white text-[#6A1B9A] hover:bg-white/90" />
+            <CarouselNext className="right-0 translate-x-1/2 bg-white text-[#6A1B9A] hover:bg-white/90" />
           </div>
         </Carousel>
       </div>
