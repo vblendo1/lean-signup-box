@@ -38,13 +38,13 @@ interface CircularTestimonialsProps {
 }
 
 function calculateGap(width: number) {
-  // Para mobile (< 768px), usar gap menor
-  if (width < 768) return 30;
+  // Para mobile (< 768px), usar gap aumentado
+  if (width < 768) return 55;
   
   const minWidth = 1024;
   const maxWidth = 1456;
-  const minGap = 60;
-  const maxGap = 86;
+  const minGap = 110;
+  const maxGap = 145;
   if (width <= minWidth) return minGap;
   if (width >= maxWidth)
     return Math.max(minGap, maxGap + 0.06018 * (width - maxWidth));
