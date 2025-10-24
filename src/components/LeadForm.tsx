@@ -11,13 +11,21 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 const formSchema = z.object({
   name: z.string().min(2, "Nome deve ter pelo menos 2 caracteres").max(100),
   email: z.string().email("Email inválido").max(255),
-  phone: z.string().optional(),
+  storeName: z.string().min(2, "Nome da loja deve ter pelo menos 2 caracteres").max(100),
+  whatsapp: z.string().min(10, "WhatsApp inválido").max(20),
+  city: z.string().min(2, "Cidade deve ter pelo menos 2 caracteres").max(100),
+  state: z.string().min(2, "Estado deve ter pelo menos 2 caracteres").max(50),
   message: z.string().min(10, "Mensagem deve ter pelo menos 10 caracteres").max(1000),
+  productLine: z.string().optional(),
 });
 
 type FormData = z.infer<typeof formSchema>;
 
-export const LeadForm = () => {
+interface LeadFormProps {
+  productLine?: string;
+}
+
+export const LeadForm = ({ productLine }: LeadFormProps = {}) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
@@ -26,8 +34,12 @@ export const LeadForm = () => {
     defaultValues: {
       name: "",
       email: "",
-      phone: "",
+      storeName: "",
+      whatsapp: "",
+      city: "",
+      state: "",
       message: "",
+      productLine: productLine || "",
     },
   });
 
@@ -87,10 +99,24 @@ export const LeadForm = () => {
 
           <FormField
             control={form.control}
-            name="phone"
+            name="storeName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Telefone (opcional)</FormLabel>
+                <FormLabel>Nome da loja</FormLabel>
+                <FormControl>
+                  <Input placeholder="Nome da sua loja" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="whatsapp"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>WhatsApp</FormLabel>
                 <FormControl>
                   <Input placeholder="(00) 00000-0000" {...field} />
                 </FormControl>
@@ -98,6 +124,36 @@ export const LeadForm = () => {
               </FormItem>
             )}
           />
+
+          <div className="grid grid-cols-2 gap-4">
+            <FormField
+              control={form.control}
+              name="city"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Cidade</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Sua cidade" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="state"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Estado</FormLabel>
+                  <FormControl>
+                    <Input placeholder="UF" maxLength={2} {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
 
           <FormField
             control={form.control}

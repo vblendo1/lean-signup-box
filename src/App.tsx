@@ -40,7 +40,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import { Logos3 } from './components/ui/logos3';
 import Differentials from './components/Differentials';
-import ProductCatalog from './components/ProductCatalog';
+import { ProductsSection } from './components/ProductsSection';
 import Testimonials from './components/Testimonials';
 import Blog from './components/Blog';
 import ContactForm from './components/ContactForm';
@@ -143,13 +143,13 @@ function App() {
         </div>
 
         {/* ════════════════════════════════════════════════════════════
-            CATÁLOGO DE PRODUTOS
+            ÁREA DE PRODUTOS
             ════════════════════════════════════════════════════════════
             ID: 'produtos' para navegação do menu.
 
-            Mostra as categorias de produtos com cards expansíveis. */}
+            Nova área completa com 4 seções de carrosséis de produtos. */}
         <div id="produtos">
-          <ProductCatalog onCTAClick={() => setIsModalOpen(true)} />
+          <ProductsSection />
         </div>
 
         {/* ════════════════════════════════════════════════════════════
